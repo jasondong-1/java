@@ -13,7 +13,9 @@
   <url>http://www.example.com</url>
   <packaging>pom</packaging>
   <modules>
+    <!-->java 文字版笔记<-->
     <module>note</module>
+    <!-->java 与linux 的交互<-->
     <module>java-linux-interact</module>
   </modules>
   <properties>
