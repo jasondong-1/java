@@ -17,6 +17,8 @@
     <module>note</module>
     <!-->java 与linux 的交互<-->
     <module>java-linux-interact</module>
+    <!-->探究classpath<-->
+    <module>classpath</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
