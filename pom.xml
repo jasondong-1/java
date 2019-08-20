@@ -21,6 +21,10 @@
     <module>classpath</module>
     <!-->并发<-->
     <module>concurrent</module>
+    <!-->测试类初始化顺序<-->
+    <module>loadorder</module>
+    <!-->java basic<-->
+    <module>core</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
