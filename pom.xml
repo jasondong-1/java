@@ -25,6 +25,8 @@
     <module>loadorder</module>
     <!-->java basic<-->
     <module>core</module>
+
+    <module>fastjson</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
