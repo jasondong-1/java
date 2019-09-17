@@ -46,3 +46,87 @@ public static void test1() {
 ``` 
 test1 中如果throw exception 则System.out.println("test1"); 不会执行，throw 类似return，且test2（） 也不执行  
 但是如果e.printstacktrace()则就会继续向下执行  
+
+###  类加载时会初始化静态变量吗  
+静态内部类：  
+ > 类加载时不会初始化静态成员变量，只有第一次访问变量时，静态成员变量才会被初始化，即延迟加载  
+
+非绝胎内部类：  
+ > 类加载的时候就会初始化静态成员变量  
+ 
+请看示例：  
+```java
+package com.jason.core;
+
+/**
+ * 用来检测类中的变量何时被初始化
+ */
+public class ClassInit {
+
+    private int i = 2;
+    private String s;
+    private static String s2;
+    private static String s4 = getS();
+    private String s3 = getS();
+
+    static {
+        System.out.println("static");
+        s2 = "aa";
+    }
+
+
+    public ClassInit(String s) {
+        System.out.println("hello");
+        this.s = s;
+    }
+
+    private static String getS() {
+        System.out.println(ClassInit.s2);
+        System.out.println("hi");
+        return "jj";
+    }
+
+    public static void main(String[] args) {
+        //加载类
+        System.out.println(ClassInit.class.hashCode());
+        System.out.println("======================");
+        System.out.println(Demo.class.hashCode());
+        System.out.println(Demo.i);
+        /*System.out.println(ClassInit.s2);
+        new ClassInit("ss");*/
+    }
+
+    static class Demo {
+        static int i = getI();
+
+        private static int getI() {
+            System.out.println("i");
+            return 3;
+        }
+    }
+
+}
+
+```
+输出结果为：  
+```
+null
+hi
+static
+21685669
+======================
+2133927002
+i
+3
+```
+
+### log4j  + slf4j  
+添加依赖  
+```
+<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+``` 
+log4j.properties 的配置请参考[这里](https://pan.baidu.com/share/link?shareid=2985093647&uk=305605848)  

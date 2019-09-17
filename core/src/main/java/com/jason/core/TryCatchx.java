@@ -1,5 +1,8 @@
 package com.jason.core;
 
+import java.io.File;
+import java.util.Arrays;
+
 public class TryCatchx {
 
     public static void test1() {
@@ -19,6 +22,7 @@ public class TryCatchx {
         }
         System.out.println("test2");
     }
+
     public static void main(String[] args) {
         test1();
         test2();

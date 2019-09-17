@@ -15,7 +15,7 @@ public class LockTest {
 }
 
 class Foo2 implements Runnable {
-    Lock lock = new ReentrantLock(false);
+    private final Lock lock = new ReentrantLock(false);
     private int count;
 
     @Override
