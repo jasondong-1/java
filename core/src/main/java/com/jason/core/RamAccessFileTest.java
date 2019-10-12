@@ -20,7 +20,7 @@ public class RamAccessFileTest {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void test2() throws IOException {
         long pos = 0;
         String line;
         do {
@@ -28,7 +28,20 @@ public class RamAccessFileTest {
             line = rafInfo.getLine();
             pos = rafInfo.getPos();
         } while (line != null);
+    }
 
+    //对于raf#readline的验证
+    public static void test3() throws IOException {
+        try (RandomAccessFile raf = new RandomAccessFile("aa", "r")) {
+            System.out.println(raf.readLine());
+            raf.seek(0l);
+            byte[] bytes = new byte[20];
+            System.out.println(raf.read(bytes));
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        test3();
     }
 
     class RafInfo {

@@ -130,3 +130,55 @@ i
         </dependency>
 ``` 
 log4j.properties 的配置请参考[这里](https://pan.baidu.com/share/link?shareid=2985093647&uk=305605848)  
+
+### logback的使用  
+1.依赖  logback-classic logback-core slf4j-api  
+```
+dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>1.2.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.7</version>
+    </dependency>
+```
+2. 配置文件  
+```xml
+<configuration debug="true">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are  by default assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
+```
+3.<configuration debug="true">  
+debug="true" 属性的设置可以打印status data  
+
+4.<configuration debug="false" scan="true" scanPeriod="30 seconds">  自动reload  
+scan="true" scanPeriod="30 seconds"，设置自动扫描为true，扫描间隔30秒，默认1分  
+ 
+5.当抛出异常时候，打印jar 的相关信息    
+```xml
+<configuration packagingData="true">
+  ...
+</configuration>
+```
+  

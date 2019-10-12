@@ -28,7 +28,8 @@ public class WaitNotifyTest {
             while (!isBoo()) {
                 try {
                     System.out.println(Thread.currentThread().getName()+ " 条件不满足，歇息一会儿");
-                    this.wait();
+                    //this.wait();
+                    this.wait(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -37,12 +38,13 @@ public class WaitNotifyTest {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WaitNotifyTest waitNotifyTest = new WaitNotifyTest();
         for (int i = 0; i < 3; i++) {
             Thread thread = new Thread(new WaitRunable(waitNotifyTest), WaitNotifyTest.class.getSimpleName() + i);
             thread.start();
         }
+        Thread.sleep(4000);
         Thread thread = new Thread(new NotifyRunnable(waitNotifyTest, true));
         thread.start();
     }

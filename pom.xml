@@ -27,6 +27,10 @@
     <module>core</module>
 
     <module>fastjson</module>
+    <!-->自己的一些工具类<-->
+    <module>tools</module>
+    <module>logback-test</module>
+    <module>dom4j</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

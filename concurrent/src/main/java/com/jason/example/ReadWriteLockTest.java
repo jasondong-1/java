@@ -26,6 +26,7 @@ class Foo3 {
     private final Lock write = rwlock.writeLock();
 
     public int getCount() throws InterruptedException {
+        System.out.println("read====");
         read.lock();
         try {
             System.out.println(Thread.currentThread().getName() + " 获得读锁：" + count);
@@ -37,6 +38,7 @@ class Foo3 {
     }
 
     public void add() {
+        System.out.println("===========write");
         write.lock();
         try {
             this.count += 1;
