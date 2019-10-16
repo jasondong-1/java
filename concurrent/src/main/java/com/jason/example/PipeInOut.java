@@ -33,8 +33,14 @@ class PipeRunnable implements Runnable {
             String s = new String("jason" + i);
             try {
                 out.write(s.getBytes(Charset.forName("utf-8")));
+                out.flush();
                 Thread.sleep(1000);
             } catch (IOException | InterruptedException e) {
+                try {
+                    out.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 e.printStackTrace();
             }
         }
