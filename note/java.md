@@ -182,3 +182,13 @@ scan="true" scanPeriod="30 seconds"，设置自动扫描为true，扫描间隔30
 </configuration>
 ```
   
+### java.lang.NoClassDefFoundError和ClassNotFoundException  
+ClassNotFoundException：在程序编译时会遇到  
+java.lang.NoClassDefFoundError：在程序运行时会遇到  
+
+原因多为在classpath中未找到相关类，或者不具备rx权限  
+
+
+### arraylist foreach 遍历并删除 报错  
+[看这里](https://www.cnblogs.com/huangjinyong/p/9455163.html)
+

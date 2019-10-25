@@ -1,8 +1,5 @@
 package com.jason.core;
 
-import java.io.File;
-import java.util.Arrays;
-
 public class TryCatchx {
 
     public static void test1() {
@@ -17,6 +14,7 @@ public class TryCatchx {
     public static void test2() {
         try {
             Integer.valueOf("kk");
+            Thread.sleep(411);
         } catch (Exception e) {
             e.printStackTrace();
         }

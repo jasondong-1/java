@@ -1,5 +1,8 @@
 package com.jason.example;
 
+import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 public class WaitNotifyTest {
     private boolean boo;
 
@@ -14,6 +17,7 @@ public class WaitNotifyTest {
         synchronized (this) {
             this.boo = boo;
             try {
+                System.out.println("+++++++++++++++++++");
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -27,7 +31,7 @@ public class WaitNotifyTest {
         synchronized (this) {
             while (!isBoo()) {
                 try {
-                    System.out.println(Thread.currentThread().getName()+ " 条件不满足，歇息一会儿");
+                    System.out.println(Thread.currentThread().getName() + " 条件不满足，歇息一会儿");
                     //this.wait();
                     this.wait(1000);
                 } catch (InterruptedException e) {
