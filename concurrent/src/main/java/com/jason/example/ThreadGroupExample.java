@@ -11,7 +11,7 @@ public class ThreadGroupExample {
         System.out.println(group.activeCount());
         //统计active groups（包括子group）数量
         System.out.println(group.activeGroupCount());
-        //销毁group记忆子group，前提是group中所有thread都停了
+        //销毁group以及子group，前提是group中所有thread都停了
         group.destroy();
         //将当前group及其子group中的active线程复制过来
         group.enumerate(new Thread[10]);
