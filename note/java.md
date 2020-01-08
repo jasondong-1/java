@@ -192,3 +192,32 @@ java.lang.NoClassDefFoundError：在程序运行时会遇到
 ### arraylist foreach 遍历并删除 报错  
 [看这里](https://www.cnblogs.com/huangjinyong/p/9455163.html)
 
+### hook  
+个人浅见，hook主要用于在jvm中断时执行任务，比如释放资源等等  
+```java
+package com.jason.core;
+
+public class HookTest {
+    public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                System.out.println("byebye");
+            }
+        });
+        for (int i = 0; i < 5; i++) {
+            System.out.println(String.format("倒计时：%d", i));
+        }
+    }
+}
+
+```
+执行结果  
+```
+倒计时：0
+倒计时：1
+倒计时：2
+倒计时：3
+倒计时：4
+byebye
+```

@@ -31,6 +31,7 @@
         <module>tools</module>
         <module>logback-test</module>
         <module>dom4j</module>
+        <module>mysql</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
