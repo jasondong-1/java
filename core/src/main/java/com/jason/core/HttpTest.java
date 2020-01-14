@@ -1,6 +1,7 @@
 package com.jason.core;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.log4j.PropertyConfigurator;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -30,5 +31,6 @@ public class HttpTest {
         HttpEntity<String> entity = new HttpEntity<String>(requestJson, headers);
         String result = restTemplate.postForObject(url, entity, String.class);
         System.out.println(result);
+        PropertyConfigurator.configure(System.getProperty("user.dir") + "/conf/log4j.properties");
     }
 }

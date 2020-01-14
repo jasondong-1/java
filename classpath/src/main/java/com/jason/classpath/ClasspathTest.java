@@ -13,13 +13,17 @@ public class ClasspathTest {
 
     }
 
-    public void test1(){
+    public void test1() throws IOException {
         URL url = getClass().getClassLoader().getResource("");
         System.out.println(url.getFile());
         File file = new File(url.getFile());
         for(File f:file.listFiles()){
             System.out.println(f.getAbsolutePath());
         }
+    }
+
+    public void test3(){
+        System.out.println(getClass().getResource("/").getPath());
     }
 
     public void test2() throws IOException {
@@ -33,6 +37,7 @@ public class ClasspathTest {
 
     public static void main(String[] args) throws URISyntaxException, IOException {
         ClasspathTest ct =  new ClasspathTest();
+        ct.test3();
         ct.test1();
         ct.test2();
     }

@@ -221,3 +221,6 @@ public class HookTest {
 倒计时：4
 byebye
 ```
+
+###  java 获取类路径  
+[链接](https://www.cnblogs.com/zhaosq/p/10907348.html)

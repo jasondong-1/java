@@ -22,9 +22,11 @@ public class JsonObjTest {
 
         System.out.println("-----------------------------");
 
-        String s = "{\"status\":true,\"code\":200,\"message\":\"dataSource\",\"data\":{\"deployCode\":\"b2682ad2-0b20-4019-b0b3-02cb74696c5e\",\"connectType\":\"ssh\",\"passwd\":\"mepo123\",\"port\":\"22\",\"ip\":\"10.4.66.96\",\"remark\":null,\"connectName\":\"meepo96\",\"userName\":\"meepo\",\"encoding\":\"\"}}";
+        String s = "{\"status\":true,\"dd\":{},\"code\":200,\"message\":\"dataSource\",\"data\":{\"deployCode\":\"b2682ad2-0b20-4019-b0b3-02cb74696c5e\",\"connectType\":\"ssh\",\"passwd\":\"mepo123\",\"port\":\"22\",\"ip\":\"10.4.66.96\",\"remark\":null,\"connectName\":\"meepo96\",\"userName\":\"meepo\",\"encoding\":\"\"}}";
         JSONObject jo3 = new JSONObject(s);
-        System.out.println(jo3.getJSONObject("data").getString("userName"));
+        System.out.println(jo3.getJSONObject("dd").isEmpty());
+        System.out.println(jo3.getJSONObject("data"));
+        System.out.println(System.currentTimeMillis());
 
     }
 
