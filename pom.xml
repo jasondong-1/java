@@ -32,6 +32,8 @@
         <module>logback-test</module>
         <module>dom4j</module>
         <module>mysql</module>
+        <module>jsoup</module>
+        <module>codahale</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

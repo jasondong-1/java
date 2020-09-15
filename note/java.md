@@ -251,3 +251,13 @@ byebye
         </dependency>
 ```  
 [代码](https://github.com/jasondong-1/java/tree/master/core/src/main/java/com/jason/core/pdf2word)
+
+### no xx in java.library.path  
+一般是缺少.dll 或 .so，找到缺少的.so 或 .dll  
+java -Djava.library.path=/path/to/.so 即可
+
+### 反射更改对象的属性
+
+### 获取类所在的jar包
+
+### java.util.ServiceLoader
