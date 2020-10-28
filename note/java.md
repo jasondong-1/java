@@ -256,7 +256,7 @@ byebye
 一般是缺少.dll 或 .so，找到缺少的.so 或 .dll  
 java -Djava.library.path=/path/to/.so 即可
 
-### 反射更改对象的属性
+### [反射更改对象的属性](https://github.com/jasondong-1/java/blob/master/core/src/main/java/com/jason/core/ReflectTest.java)
 
 ### 获取类所在的jar包
 ```
@@ -265,5 +265,5 @@ java -Djava.library.path=/path/to/.so 即可
         URL urlx = cls.getResource("/" + cls.getName().replace('.', '/') + ".class");
         System.out.println(urlx);
 ```
-### java.util.ServiceLoader  
+### [java.util.ServiceLoader](https://github.com/jasondong-1/java/blob/master/core/src/main/java/com/jason/core/ServiceLoaderTest.java)  
 
