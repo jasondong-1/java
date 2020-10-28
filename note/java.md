@@ -259,5 +259,11 @@ java -Djava.library.path=/path/to/.so 即可
 ### 反射更改对象的属性
 
 ### 获取类所在的jar包
+```
+        Class<Driver> cls = Driver.class;
+        //这句可以查找加载的类的jar包
+        URL urlx = cls.getResource("/" + cls.getName().replace('.', '/') + ".class");
+        System.out.println(urlx);
+```
+### java.util.ServiceLoader  
 
-### java.util.ServiceLoader
