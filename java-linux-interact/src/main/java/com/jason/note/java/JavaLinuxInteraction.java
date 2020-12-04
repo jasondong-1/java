@@ -1,9 +1,10 @@
 package com.jason.note.java;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.util.*;
 
 public class JavaLinuxInteraction {
@@ -37,6 +38,23 @@ public class JavaLinuxInteraction {
         builder.command(commands);
         builder.redirectErrorStream(true);
         Process process = builder.start();
+
+        //获取process pid
+
+
+        long pid = -1;
+        Field field = null;
+        try {
+            Class<?> clazz = Class.forName("java.lang.UNIXProcess");
+            field = clazz.getDeclaredField("pid");
+            field.setAccessible(true);
+            pid = (Integer) field.get(process);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        //获取process pid
+
+
         BufferedReader reader2 = new BufferedReader(new InputStreamReader(process.getInputStream()));
         final Scanner reader = new Scanner(reader2);
         PrintWriter writer = new PrintWriter(process.getOutputStream(), true);
@@ -86,6 +104,23 @@ public class JavaLinuxInteraction {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        test();
+        //test();
+        //String cmd = "ps -ef | grep org.apache.spark.repl.extend.SparkExecutor";
+        String cmd = "sh /home/jason/aa.sh";
+        Process process = Runtime.getRuntime().exec(cmd);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        //reader.close();
+        process.waitFor();
+        System.out.println("执行命令 " + cmd + " 结束;" + process.exitValue());
     }
 }
