@@ -256,8 +256,17 @@ byebye
 一般是缺少.dll 或 .so，找到缺少的.so 或 .dll  
 java -Djava.library.path=/path/to/.so 即可
 
-### 反射更改对象的属性
+### [反射更改对象的属性](https://github.com/jasondong-1/java/blob/master/core/src/main/java/com/jason/core/ReflectTest.java)
 
 ### 获取类所在的jar包
+```
+        Class<Driver> cls = Driver.class;
+        //这句可以查找加载的类的jar包
+        URL urlx = cls.getResource("/" + cls.getName().replace('.', '/') + ".class");
+        System.out.println(urlx);
+```
+### [java.util.ServiceLoader](https://github.com/jasondong-1/java/blob/master/core/src/main/java/com/jason/core/ServiceLoaderTest.java)  
 
-### java.util.ServiceLoader
+### [jdbc隔离级别](https://github.com/jasondong-1/java/blob/master/mysql/src/main/java/com/jason/examples/IsolationLevelTest.java)  
+网上关于隔离级别的文章很多，隔离级别的概念请百度，这里测试隔离级别应该用在写数据阶段还是查询数据阶段  
+经过测试，当query时设置隔离级别才有效，得出结论隔离级别用来控制当前连接《读取》的结果  

@@ -2,20 +2,15 @@ package com.jason.core;
 
 import org.joda.time.DateTime;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 
+/**
+ * spark利用SimpleDateFormat处理时间时存在线程安全问题，
+ * 因此采用jodatime
+ */
 public class JodaTimeTest {
-
-
     public static void main(String[] args) {
-        Date date = new Date(System.currentTimeMillis());
-        System.out.println("java.sql.date " + date.toString());
-        DateTime dateTime = new DateTime(date);
-        System.out.println(dateTime.toString("yyyy-MM-dd"));
-
-        Timestamp ts = new Timestamp(System.currentTimeMillis());
-        dateTime = new DateTime(ts.getTime());
-        System.out.println(dateTime.toString("yyyy-MM-dd HH:mm:ss.SSS"));
+        Date date = new Date();
+        DateTime dt = new DateTime(date);
     }
 }

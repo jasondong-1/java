@@ -14,7 +14,7 @@ public class JDBCExample {
         this.passwd = passwd;
     }
 
-    private Connection getConn() throws ClassNotFoundException, SQLException {
+    public Connection getConn() throws ClassNotFoundException, SQLException {
         Class.forName(driver);
         Connection conn = DriverManager.getConnection(url, userName, passwd);
         return conn;
